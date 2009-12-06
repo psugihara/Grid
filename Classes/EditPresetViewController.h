@@ -1,6 +1,6 @@
 //
 //  EditPresetViewController.h
-//  Gridder
+//  Grid
 //
 //  Created by Peter Sugihara on 11/1/09.
 //	Copyright (c) 2009 Peter Sugihara

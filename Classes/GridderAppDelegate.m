@@ -1,6 +1,6 @@
 //
 //  GridderAppDelegate.m
-//  Gridder
+//  Grid
 //
 //  Created by Peter Sugihara on 6/4/09.
 //	Copyright (c) 2009 Peter Sugihara

@@ -197,48 +197,7 @@
 	<key>Notifications</key>
 	<array/>
 	<key>OpenEditors</key>
-	<array>
-		<dict>
-			<key>Content</key>
-			<dict>
-				<key>PBXProjectModuleGUID</key>
-				<string>A1ACBAEE10CC0E0E00563114</string>
-				<key>PBXProjectModuleLabel</key>
-				<string>Compare 3 vs. Local — Grid.h</string>
-				<key>PBXSplitModuleInNavigatorKey</key>
-				<dict>
-					<key>Split0</key>
-					<dict>
-						<key>PBXProjectModuleGUID</key>
-						<string>A1ACBAEF10CC0E0E00563114</string>
-						<key>PBXProjectModuleLabel</key>
-						<string>Compare 3 vs. Local — Grid.h</string>
-						<key>_historyCapacity</key>
-						<integer>0</integer>
-						<key>bookmark</key>
-						<string>A1ACBAF110CC0E0E00563114</string>
-						<key>history</key>
-						<array>
-							<string>A1ACBAF010CC0E0E00563114</string>
-						</array>
-					</dict>
-					<key>SplitCount</key>
-					<string>1</string>
-				</dict>
-				<key>StatusBarVisibility</key>
-				<true/>
-			</dict>
-			<key>Geometry</key>
-			<dict>
-				<key>Frame</key>
-				<string>{{0, 20}, {750, 777}}</string>
-				<key>PBXModuleWindowStatusBarHidden2</key>
-				<false/>
-				<key>RubberWindowFrame</key>
-				<string>15 60 750 818 0 0 1440 878 </string>
-			</dict>
-		</dict>
-	</array>
+	<array/>
 	<key>PerspectiveWidths</key>
 	<array>
 		<integer>1173</integer>
@@ -272,6 +231,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -316,7 +277,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>7</integer>
+									<integer>6</integer>
+									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -368,7 +330,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>A1ACBAEA10CC0E0E00563114</string>
+										<string>A1ACBAF810CC14CE00563114</string>
 										<key>history</key>
 										<array>
 											<string>A1E809710FD92A5200DE912E</string>
@@ -487,8 +449,6 @@
 									<string>PBXProjectFindModule</string>
 								</dict>
 								<dict>
-									<key>BecomeActive</key>
-									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXCVSModuleFilterTypeKey</key>
@@ -765,7 +725,6 @@
 	<key>WindowOrderList</key>
 	<array>
 		<string>/Users/petersugihara/Code/grid/trunk (Working Copy)/Grid.xcodeproj</string>
-		<string>A1ACBAEE10CC0E0E00563114</string>
 	</array>
 	<key>WindowString</key>
 	<string>250 60 1173 818 0 0 1440 878 </string>
