@@ -1,6 +1,6 @@
 //
 //  GridPoint.m
-//  SHSHSH
+//  Grid
 //
 //	This class defines a GridPoint object with certain behaviors
 //	relative to a center.

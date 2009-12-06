@@ -70,7 +70,7 @@
 		A18C974B109E7EA400DF03E7 /* EditPresetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditPresetView.xib; sourceTree = "<group>"; };
 		A196599C1058A14300E946D5 /* Preset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preset.h; sourceTree = "<group>"; };
 		A196599D1058A14300E946D5 /* Preset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preset.m; sourceTree = "<group>"; };
-		A1A1431A0FD8D388005626C6 /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grid.h; sourceTree = "<group>"; };
+		A1A1431A0FD8D388005626C6 /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Grid.h; path = Classes/Grid.h; sourceTree = SOURCE_ROOT; };
 		A1A1431B0FD8D388005626C6 /* Grid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grid.m; sourceTree = "<group>"; };
 		A1A1431C0FD8D388005626C6 /* GridPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridPoint.h; sourceTree = "<group>"; };
 		A1A1431D0FD8D388005626C6 /* GridPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridPoint.m; sourceTree = "<group>"; };

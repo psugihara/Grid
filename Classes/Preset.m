@@ -1,6 +1,6 @@
 //
 //  Preset.m
-//  Gridder
+//  Grid
 //
 //  Created by Peter Sugihara on 9/9/09.
 //	Copyright (c) 2009 Peter Sugihara

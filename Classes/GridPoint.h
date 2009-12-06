@@ -1,6 +1,6 @@
 //
 //  GridPoint.h
-//  SHSHSH
+//  Grid
 //
 //  Created by Peter Sugihara on 5/29/09.
 //	Copyright (c) 2009 Peter Sugihara

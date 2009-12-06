@@ -1,6 +1,6 @@
 //
 //  Grid.h
-//  SHSHSH
+//  Grid
 //
 //  Created by Peter Sugihara on 5/27/09.
 //	Copyright (c) 2009 Peter Sugihara
