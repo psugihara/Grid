@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 45;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,8 @@
 		A16E74D210C6C4FD005A7E65 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = A16E74D110C6C4FD005A7E65 /* Icon-Small.png */; };
 		A18C974C109E7EA400DF03E7 /* EditPresetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A18C974A109E7EA400DF03E7 /* EditPresetViewController.m */; };
 		A18C974D109E7EA400DF03E7 /* EditPresetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A18C974B109E7EA400DF03E7 /* EditPresetView.xib */; };
+		A195A8AB111D54FA00389A9C /* CAStreamBasicDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A195A8A7111D54FA00389A9C /* CAStreamBasicDescription.cpp */; };
+		A195A8AC111D54FA00389A9C /* CAXException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A195A8A9111D54FA00389A9C /* CAXException.cpp */; };
 		A196599E1058A14300E946D5 /* Preset.m in Sources */ = {isa = PBXBuildFile; fileRef = A196599D1058A14300E946D5 /* Preset.m */; };
 		A1A1431E0FD8D388005626C6 /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A1431B0FD8D388005626C6 /* Grid.m */; };
 		A1A1431F0FD8D388005626C6 /* GridPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A1431D0FD8D388005626C6 /* GridPoint.m */; };
@@ -38,8 +40,6 @@
 		A1C6D45910A3F12700FF344F /* gridderLoadScreen7.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C6D44D10A3F12700FF344F /* gridderLoadScreen7.png */; };
 		A1C6D45A10A3F12700FF344F /* gridderLoadScreen8.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C6D44E10A3F12700FF344F /* gridderLoadScreen8.png */; };
 		A1C6D45B10A3F12700FF344F /* gridderLoadScreen9.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C6D44F10A3F12700FF344F /* gridderLoadScreen9.png */; };
-		A1C6D46410A3F54A00FF344F /* gridderEditScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C6D46210A3F54A00FF344F /* gridderEditScreen.png */; };
-		A1C6D46510A3F54A00FF344F /* gridderEditScreen1.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C6D46310A3F54A00FF344F /* gridderEditScreen1.png */; };
 		A1C6D46810A3F6A500FF344F /* angleButtonDown.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C6D46710A3F6A500FF344F /* angleButtonDown.png */; };
 		A1C6D46B10A3F6B300FF344F /* bladeButtonDown.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C6D46910A3F6B300FF344F /* bladeButtonDown.png */; };
 		A1C6D46C10A3F6B300FF344F /* bubblerButtonDown.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C6D46A10A3F6B300FF344F /* bubblerButtonDown.png */; };
@@ -50,7 +50,6 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* GridderAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridderAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* GridderAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridderAppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* Grid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Grid.app; path = "/Users/petersugihara/Code/grid/trunk (Working Copy)/build/Distribution-iphonesimulator/Grid.app"; sourceTree = "<absolute>"; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2899E5210DE3E06400AC0155 /* GridderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GridderView.xib; path = ../GridderView.xib; sourceTree = "<group>"; };
@@ -68,6 +67,12 @@
 		A18C9749109E7EA400DF03E7 /* EditPresetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPresetViewController.h; sourceTree = "<group>"; };
 		A18C974A109E7EA400DF03E7 /* EditPresetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPresetViewController.m; sourceTree = "<group>"; };
 		A18C974B109E7EA400DF03E7 /* EditPresetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditPresetView.xib; sourceTree = "<group>"; };
+		A195A8A5111D54FA00389A9C /* CADebugMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADebugMacros.h; sourceTree = "<group>"; };
+		A195A8A6111D54FA00389A9C /* CAMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAMath.h; sourceTree = "<group>"; };
+		A195A8A7111D54FA00389A9C /* CAStreamBasicDescription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAStreamBasicDescription.cpp; sourceTree = "<group>"; };
+		A195A8A8111D54FA00389A9C /* CAStreamBasicDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAStreamBasicDescription.h; sourceTree = "<group>"; };
+		A195A8A9111D54FA00389A9C /* CAXException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAXException.cpp; sourceTree = "<group>"; };
+		A195A8AA111D54FA00389A9C /* CAXException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAXException.h; sourceTree = "<group>"; };
 		A196599C1058A14300E946D5 /* Preset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preset.h; sourceTree = "<group>"; };
 		A196599D1058A14300E946D5 /* Preset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preset.m; sourceTree = "<group>"; };
 		A1A1431A0FD8D388005626C6 /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Grid.h; path = Classes/Grid.h; sourceTree = SOURCE_ROOT; };
@@ -89,12 +94,11 @@
 		A1C6D44D10A3F12700FF344F /* gridderLoadScreen7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gridderLoadScreen7.png; sourceTree = "<group>"; };
 		A1C6D44E10A3F12700FF344F /* gridderLoadScreen8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gridderLoadScreen8.png; sourceTree = "<group>"; };
 		A1C6D44F10A3F12700FF344F /* gridderLoadScreen9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gridderLoadScreen9.png; sourceTree = "<group>"; };
-		A1C6D46210A3F54A00FF344F /* gridderEditScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gridderEditScreen.png; sourceTree = "<group>"; };
-		A1C6D46310A3F54A00FF344F /* gridderEditScreen1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gridderEditScreen1.png; sourceTree = "<group>"; };
 		A1C6D46710A3F6A500FF344F /* angleButtonDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = angleButtonDown.png; sourceTree = "<group>"; };
 		A1C6D46910A3F6B300FF344F /* bladeButtonDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bladeButtonDown.png; sourceTree = "<group>"; };
 		A1C6D46A10A3F6B300FF344F /* bubblerButtonDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubblerButtonDown.png; sourceTree = "<group>"; };
 		A1ECF21810BE4BFA008622CF /* gridderEditScreen2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gridderEditScreen2.png; sourceTree = "<group>"; };
+		A1F1A3E910CE202700158008 /* Grid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				A1F1A3E910CE202700158008 /* Grid.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -163,8 +168,6 @@
 				A1C6D46710A3F6A500FF344F /* angleButtonDown.png */,
 				A1C6D46910A3F6B300FF344F /* bladeButtonDown.png */,
 				A1C6D46A10A3F6B300FF344F /* bubblerButtonDown.png */,
-				A1C6D46210A3F54A00FF344F /* gridderEditScreen.png */,
-				A1C6D46310A3F54A00FF344F /* gridderEditScreen1.png */,
 				A1ECF21810BE4BFA008622CF /* gridderEditScreen2.png */,
 				A1C6D44610A3F12700FF344F /* gridderLoadScreen0.png */,
 				A1C6D44710A3F12700FF344F /* gridderLoadScreen1.png */,
@@ -206,6 +209,7 @@
 		A16106A51086B74C0089F437 /* AUDIO */ = {
 			isa = PBXGroup;
 			children = (
+				A195A8A4111D54FA00389A9C /* iPublicUtility */,
 				A16106A61086B75B0089F437 /* Audio playbac */,
 			);
 			name = AUDIO;
@@ -218,6 +222,19 @@
 				A16106AA1086B75B0089F437 /* DJMixer.m */,
 			);
 			name = "Audio playbac";
+			sourceTree = "<group>";
+		};
+		A195A8A4111D54FA00389A9C /* iPublicUtility */ = {
+			isa = PBXGroup;
+			children = (
+				A195A8A5111D54FA00389A9C /* CADebugMacros.h */,
+				A195A8A6111D54FA00389A9C /* CAMath.h */,
+				A195A8A7111D54FA00389A9C /* CAStreamBasicDescription.cpp */,
+				A195A8A8111D54FA00389A9C /* CAStreamBasicDescription.h */,
+				A195A8A9111D54FA00389A9C /* CAXException.cpp */,
+				A195A8AA111D54FA00389A9C /* CAXException.h */,
+			);
+			path = iPublicUtility;
 			sourceTree = "<group>";
 		};
 		A1D4DB2C0FE0F2D800407A89 /* Model */ = {
@@ -262,8 +279,8 @@
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Grid" */;
 			buildPhases = (
 				1D60588D0D05DD3D006BFB54 /* Resources */,
-				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
 				A17043FE10011FEF00D2D22A /* Rez */,
 			);
 			buildRules = (
@@ -272,7 +289,7 @@
 			);
 			name = Grid;
 			productName = Gridder;
-			productReference = 1D6058910D05DD3D006BFB54 /* Grid.app */;
+			productReference = A1F1A3E910CE202700158008 /* Grid.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -281,7 +298,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Grid" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
@@ -310,8 +327,6 @@
 				A1C6D45910A3F12700FF344F /* gridderLoadScreen7.png in Resources */,
 				A1C6D45A10A3F12700FF344F /* gridderLoadScreen8.png in Resources */,
 				A1C6D45B10A3F12700FF344F /* gridderLoadScreen9.png in Resources */,
-				A1C6D46410A3F54A00FF344F /* gridderEditScreen.png in Resources */,
-				A1C6D46510A3F54A00FF344F /* gridderEditScreen1.png in Resources */,
 				A1C6D46810A3F6A500FF344F /* angleButtonDown.png in Resources */,
 				A1C6D46B10A3F6B300FF344F /* bladeButtonDown.png in Resources */,
 				A1C6D46C10A3F6B300FF344F /* bubblerButtonDown.png in Resources */,
@@ -350,6 +365,8 @@
 				A16106AC1086B75B0089F437 /* DJMixer.m in Sources */,
 				A1BB4D31108EC1E400BD121B /* GridViewController.m in Sources */,
 				A18C974C109E7EA400DF03E7 /* EditPresetViewController.m in Sources */,
+				A195A8AB111D54FA00389A9C /* CAStreamBasicDescription.cpp in Sources */,
+				A195A8AC111D54FA00389A9C /* CAXException.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +384,8 @@
 				GCC_PREFIX_HEADER = Grid_Prefix.pch;
 				INFOPLIST_FILE = "Gridder-Info.plist";
 				PRODUCT_NAME = Grid;
+				SDKROOT = iphonesimulator2.2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -379,6 +398,7 @@
 				GCC_PREFIX_HEADER = Grid_Prefix.pch;
 				INFOPLIST_FILE = "Gridder-Info.plist";
 				PRODUCT_NAME = Grid;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -399,6 +419,7 @@
 				PROVISIONING_PROFILE = "E095FB22-33B1-4553-B0CE-76F383DE5370";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E095FB22-33B1-4553-B0CE-76F383DE5370";
 				SDKROOT = iphoneos3.0;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Distribution;
 		};
@@ -406,12 +427,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Joan Sugihara";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Grid_Prefix.pch;
 				INFOPLIST_FILE = "Gridder-Info.plist";
 				PRODUCT_NAME = Grid;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Distribution;
 		};
