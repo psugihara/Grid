@@ -54,9 +54,10 @@
 	self.lineColor = preset.lineColor;
 	self.backgroundColor = preset.backgroundColor;
 	int size = preset.size;
+	CGRect rect = [[UIScreen mainScreen] bounds];
 	self.lengthBetweenPoints = 16*size;
-	self.numOfPointsAcross = 320/lengthBetweenPoints + 1;
-	self.numOfPointsDown = 432/lengthBetweenPoints;
+	self.numOfPointsAcross = rect.size.width/lengthBetweenPoints + 1;
+	self.numOfPointsDown = (rect.size.height-20.0)/lengthBetweenPoints;
 	self.bloomSpeed = preset.bloomSpeed;
 	self.wiltSpeed = preset.wiltSpeed;
 	[preset release];

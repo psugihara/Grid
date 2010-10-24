@@ -38,25 +38,25 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
 		operationQueue = [[NSOperationQueue alloc] init];
-		[operationQueue setMaxConcurrentOperationCount:1];
+		[operationQueue setMaxConcurrentOperationCount:3];
 	}
     return self;
 }
 
- 
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
+// Overridden in order to save the currentWindowNumber
+- (void)setCurrentWindowNumber:(int)number {
+	if (currentWindowNumber == number) return;
+	currentWindowNumber = number;
+	[[NSUserDefaults standardUserDefaults] setInteger:currentWindowNumber forKey:@"currentWindowNumber"];
 }
-*/
+	  
 - (void)viewWillAppear:(BOOL)animated {
-	
     [super viewWillAppear:animated];
 	self.navigationController.navigationBarHidden=YES;
 
 }
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+// Called by default.  Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	[[UIApplication sharedApplication] setStatusBarHidden:YES];
 	
@@ -73,8 +73,7 @@
 
 
 - (void)showLoadingImages {
-	CGRect frame = CGRectMake(0, 0, 320, 480);
-	UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
+	UIImageView *imageView = [[UIImageView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
 	NSMutableArray *loadingImages = [[NSMutableArray alloc] init];
 
@@ -113,31 +112,27 @@
 	presetButtonII.tag = 2;
 	presetButtonIII.tag = 3;
 	
-	currentWindowNumber = [[NSUserDefaults standardUserDefaults] integerForKey:@"currentWindowNumber"];
-
-	if (YES) { //This will occur the first time the app is used.
-		NSLog(@"preset reset");
+	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+	currentWindowNumber = [prefs integerForKey:@"currentWindowNumber"];
+	if (![prefs boolForKey:@"hasPrefs"]) { //This will occur the first time the app is used.
 		[self resetSettingsToDefaultPresetForWindowNumber:1];
 		[self resetSettingsToDefaultPresetForWindowNumber:2];
 		[self resetSettingsToDefaultPresetForWindowNumber:3];
 		currentWindowNumber = 1;
+		[self savePresets];
+		[prefs setBool:YES forKey:@"hasPrefs"];
 	}
 	else {
 		[self loadSavedPresets];
 	}
-
 								 
-	NSLog(@"%a",[gridPresetForWindowI description]);
 	
 
 	//Load the gravitron and grid
-	gravitron = CGPointMake(550,550);  //Will hopefully render offscreen
+	gravitron = CGPointMake(550,550);  //Will render offscreen
 	grid = [[Grid alloc] initWithGravitron:self.gravitron andPreset:[self getPresetForWindowNumber:currentWindowNumber]];
 	gridView.grid = grid;
 
-	//	id displayLink = [NSClassFromString(@"CADisplayLink") displayLinkWithTarget:self selector:@selector(beginLoadingNewFrame)];
-	//	[displayLink setFrameInterval:1];
-	//	[displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 	[NSThread sleepForTimeInterval:secondsToShowLoadingScreen];
 	[grid reset];
     [self performSelectorOnMainThread:@selector(didFinishCreatingGrid) withObject:nil waitUntilDone:NO];
@@ -148,24 +143,6 @@
 	runLoop = [NSRunLoop currentRunLoop];
 	[runLoop addTimer:timer forMode:NSDefaultRunLoopMode];
 }
-//
-//- (void)beginAudio {
-//    NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(synchronousBeginAudio) object:nil];
-//    [operationQueue addOperation:operation];
-//    [operation release];
-//}
-//
-//- (void)synchronousBeginAudio {
-//	
-//	//start the audio
-//	DJMixer *djMixer = [[DJMixer alloc]init];
-//	gridView.djMixer = djMixer;
-//	[djMixer release];
-//}
-//
-//- (void)didFinishBeginningAudio {
-//}
-
 
 //This is the animation/data update triggered by the timer.
 - (void)loadNewFrame {
@@ -177,15 +154,6 @@
 		[gridView setNeedsDisplay];
 	}
 }
-
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -220,15 +188,17 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	UITouch *touch= [touches anyObject];
 	grid.gravitron = [touch locationInView:self.gridView];
-	[djMixer changeCrossFaderAmount:(1-(grid.gravitron.y-10)/460)];
-	djMixer.octaveShift = (int)4*(grid.gravitron.x)/360;
+	CGRect rect = [[UIScreen mainScreen] bounds];
+	[djMixer changeCrossFaderAmount:(1-(grid.gravitron.y-10)/rect.size.height)];
+	djMixer.octaveShift = (int)4*(grid.gravitron.x)/rect.size.width;
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
 	UITouch *touch= [touches anyObject];
 	grid.gravitron = [touch locationInView:self.gridView];
-	[djMixer changeCrossFaderAmount:(1-(grid.gravitron.y-10)/460)];
-	djMixer.octaveShift = (int)4*(grid.gravitron.x)/360;
+	CGRect rect = [[UIScreen mainScreen] bounds];
+	[djMixer changeCrossFaderAmount:(1-(grid.gravitron.y-10)/rect.size.height)];
+	djMixer.octaveShift = (int)4*(grid.gravitron.x)/rect.size.width;
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -239,7 +209,7 @@
 
 - (IBAction)presetButton:(UIButton *)sender {
 	if (currentWindowNumber != sender.tag) {
-		currentWindowNumber = sender.tag;
+		self.currentWindowNumber = sender.tag;
 		grid = [grid initWithGravitron:gridView.grid.gravitron andPreset:[self getPresetForWindowNumber:currentWindowNumber]];
 
 		gridView.grid = grid;
@@ -250,7 +220,6 @@
 		djMixer.angled = [self getPresetForWindowNumber:currentWindowNumber].angled;
 		djMixer.bubbled = [self getPresetForWindowNumber:currentWindowNumber].bubbled;
 		djMixer.doubleBubbled = [self getPresetForWindowNumber:currentWindowNumber].doubleBubbled;
-
 	}
 	[grid reset];
 }
@@ -273,7 +242,6 @@
 #pragma mark Change Presets
 
 - (void)editPresetViewController:(EditPresetViewController *)editPresetViewController didEditPreset:(Preset *)preset {
-	NSLog(@"hit");	
 	//Essentially "loadPreset" for djMixer
 	djMixer.fundamentalFrequency0 = preset.fundamentalFrequency0;
 	djMixer.fundamentalFrequency00 = preset.fundamentalFrequency00;
@@ -282,11 +250,10 @@
 	djMixer.angled = preset.angled;
 	djMixer.bubbled = preset.bubbled;
 	djMixer.doubleBubbled = preset.doubleBubbled;
-//	[self savePresets];
+	[self savePresets];
 }
 
 - (void)editPresetViewController:(EditPresetViewController *)editPresetViewController didFinishEditingPreset:(Preset *)preset {
-	NSLog(@"hit");
 	[self.grid loadPreset:preset];
 //	[self editPresetViewController:editPresetViewController didFinishEditingPreset:preset];
 	[editPresetViewController dismissModalViewControllerAnimated:YES];
@@ -326,38 +293,30 @@
 #pragma mark Load/Save State
 
 - (void)savePresets {
-	[[NSUserDefaults standardUserDefaults] setInteger:currentWindowNumber forKey:@"currentWindowNumber"];
-	NSMutableData *presetData;
-	NSKeyedArchiver *encoder;
+	NSData *presetData;
+	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 	
-	presetData = [NSMutableData data];
-	encoder = [[NSKeyedArchiver alloc] initForWritingWithMutableData:presetData];
-
-	[encoder encodeObject:gridPresetForWindowI forKey:@"gridPresetForWindowI"];
-	[encoder encodeObject:gridPresetForWindowII forKey:@"gridPresetForWindowII"];
-	[encoder encodeObject:gridPresetForWindowIII forKey:@"gridPresetForWindowIII"];
+	presetData = [NSKeyedArchiver archivedDataWithRootObject:gridPresetForWindowI];
+	[prefs setObject:presetData forKey:@"gridPresetForWindowI"];
+	presetData = [NSKeyedArchiver archivedDataWithRootObject:gridPresetForWindowII];
+	[prefs setObject:presetData forKey:@"gridPresetForWindowII"];
+	presetData = [NSKeyedArchiver archivedDataWithRootObject:gridPresetForWindowIII];
+	[prefs setObject:presetData forKey:@"gridPresetForWindowIII"];
 	
-	[encoder finishEncoding];
-	
-	// Save to a file if you'd like here...
-	[[NSUserDefaults standardUserDefaults] setObject:presetData forKey:@"presetData"];
-
-	[encoder release];	
+	[prefs synchronize];
 }
 
 - (void)loadSavedPresets {
-	NSMutableData *theData;
-	NSKeyedUnarchiver *decoder;
-	
-	theData = [NSData dataWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"presetData"]];
-	decoder = [[NSKeyedUnarchiver alloc] initForReadingWithData:theData];
-	
-	gridPresetForWindowI = [[decoder decodeObjectForKey:@"gridPresetForWindowI"] retain];
-	gridPresetForWindowII = [[decoder decodeObjectForKey:@"gridPresetForWindowII"] retain];
-	gridPresetForWindowIII = [[decoder decodeObjectForKey:@"gridPresetForWindowIII"] retain];
-	
-	[decoder finishDecoding];
-	[decoder release];
+	self.gridPresetForWindowI = [self loadPresetWithKey:@"gridPresetForWindowI"];
+	self.gridPresetForWindowII = [self loadPresetWithKey:@"gridPresetForWindowII"];
+	self.gridPresetForWindowIII = [self loadPresetWithKey:@"gridPresetForWindowIII"];
+}
+
+- (Preset*)loadPresetWithKey:(NSString*)key {
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSData *myEncodedObject = [prefs objectForKey:key];
+    Preset* obj = (Preset*)[NSKeyedUnarchiver unarchiveObjectWithData:myEncodedObject];
+    return obj;
 }
 
 @end

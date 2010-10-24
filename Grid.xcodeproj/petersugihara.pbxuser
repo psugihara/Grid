@@ -23,9 +23,9 @@
 	};
 	28D7ACF60DDB3853001CB0EB /* GridViewController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1167, 1183}}";
+			sepNavIntBoundsRect = "{{0, 0}, {813, 1235}}";
 			sepNavSelRange = "{2295, 0}";
-			sepNavVisRange = "{1400, 1522}";
+			sepNavVisRange = "{1460, 272}";
 			sepNavWindowFrame = "{{61, 273}, {750, 558}}";
 		};
 	};
@@ -180,10 +180,12 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 308603831;
-			PBXWorkspaceStateSaveDate = 308603831;
+			PBXPerProjectTemplateStateSaveDate = 309644465;
+			PBXWorkspaceStateSaveDate = 309644465;
 		};
 		perUserProjectItems = {
+			A10548FD1274CA43007131B0 = A10548FD1274CA43007131B0 /* PBXTextBookmark */;
+			A10549051274CBF6007131B0 = A10549051274CBF6007131B0 /* PBXTextBookmark */;
 			A13433EA1208AC1700832095 = A13433EA1208AC1700832095 /* PBXTextBookmark */;
 			A13433EB1208AC1700832095 = A13433EB1208AC1700832095 /* PBXTextBookmark */;
 			A13433EC1208AC1700832095 = A13433EC1208AC1700832095 /* PBXTextBookmark */;
@@ -212,6 +214,26 @@
 		uiCtxt = {
 			sepNavWindowFrame = "{{38, 294}, {750, 558}}";
 		};
+	};
+	A10548FD1274CA43007131B0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* GridViewController.h */;
+		name = "GridViewController.h: 70";
+		rLen = 0;
+		rLoc = 2295;
+		rType = 0;
+		vrLen = 272;
+		vrLoc = 1460;
+	};
+	A10549051274CBF6007131B0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* GridViewController.h */;
+		name = "GridViewController.h: 70";
+		rLen = 0;
+		rLoc = 2295;
+		rType = 0;
+		vrLen = 272;
+		vrLoc = 1460;
 	};
 	A13433EA1208AC1700832095 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -328,7 +350,7 @@
 		scmConfiguration = {
 			repositoryName = gridders;
 			repositoryNamesForRoots = {
-				"" = grid;
+				"" = google;
 			};
 		};
 	};

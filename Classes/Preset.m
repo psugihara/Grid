@@ -108,8 +108,8 @@
 		self.bloomSpeed = 6;
 		self.wiltSpeed = 6;
 		self.fundamentalFrequency0 = 369.99;  //A
-		self.fundamentalFrequency00 = 554.37;
-		self.fundamentalFrequency1 = 554.37;
+		self.fundamentalFrequency00 = 220.0;
+		self.fundamentalFrequency1 = 220.0;
 	}
 	bladed = NO;
 	angled = NO;
@@ -128,35 +128,39 @@
 #pragma mark NSCoding
 
 - (void)encodeWithCoder:(NSCoder *)coder {
-    // example
-	[coder encodeValueOfObjCType:@encode(NSString) at:&name];
-	NSLog(@"con");
-
-	[coder encodeValueOfObjCType:@encode(UIColor) at:&lineColor];
-	NSLog(@"codin");
-	[coder encodeValueOfObjCType:@encode(UIColor) at:&backgroundColor];
-	[coder encodeValueOfObjCType:@encode(int) at:&size];
-	[coder encodeValueOfObjCType:@encode(int) at:&bloomSpeed];
-	[coder encodeValueOfObjCType:@encode(int) at:&wiltSpeed];
-	[coder encodeValueOfObjCType:@encode(float) at:&fundamentalFrequency0];
-	[coder encodeValueOfObjCType:@encode(float) at:&fundamentalFrequency0];
-
-
-    // do this for all the properties of the object you want to store
+	[coder encodeObject:self.name forKey:@"name"];
+	[coder encodeObject:self.lineColor forKey:@"lineColor"];
+	[coder encodeObject:self.backgroundColor forKey:@"backgroundColor"];
+	[coder encodeObject:[NSNumber numberWithInt:self.size] forKey:@"size"];
+	[coder encodeObject:[NSNumber numberWithInt:self.bloomSpeed] forKey:@"bloomSpeed"];
+	[coder encodeObject:[NSNumber numberWithInt:self.wiltSpeed] forKey:@"wiltSpeed"];
+	[coder encodeObject:[NSNumber numberWithFloat:self.fundamentalFrequency0] forKey:@"fundamentalFrequency0"];
+	[coder encodeObject:[NSNumber numberWithFloat:self.fundamentalFrequency00] forKey:@"fundamentalFrequency00"];
+	[coder encodeObject:[NSNumber numberWithFloat:self.fundamentalFrequency1] forKey:@"fundamentalFrequency1"];
+	[coder encodeObject:[NSNumber numberWithBool:self.bladed] forKey:@"bladed"];
+	[coder encodeObject:[NSNumber numberWithBool:self.angled] forKey:@"angled"];
+	[coder encodeObject:[NSNumber numberWithBool:self.bubbled] forKey:@"bubbled"];
+	[coder encodeObject:[NSNumber numberWithBool:self.doubleBubbled] forKey:@"doubleBubbled"];
 }
 
 - (id)initWithCoder:(NSCoder *)coder {
-    // example
-    //  [coder decodeValueOfObjCType:@encode(NSInteger) at:&myInt];
-    // do this for all the properties of the object you want to retrieve
-	[coder encodeValueOfObjCType:@encode(NSString) at:&name];
-	[coder encodeValueOfObjCType:@encode(UIColor) at:&lineColor];
-	[coder encodeValueOfObjCType:@encode(UIColor) at:&backgroundColor];
-	[coder encodeValueOfObjCType:@encode(int) at:&size];
-	[coder encodeValueOfObjCType:@encode(int) at:&bloomSpeed];
-	[coder encodeValueOfObjCType:@encode(int) at:&wiltSpeed];
-	[coder encodeValueOfObjCType:@encode(float) at:&fundamentalFrequency0];
-	[coder encodeValueOfObjCType:@encode(float) at:&fundamentalFrequency0];
+	self = [super init];
+	if( self != nil ) {
+		self.name = [coder decodeObjectForKey:@"name"];
+		self.lineColor = [coder decodeObjectForKey:@"lineColor"];
+		self.backgroundColor = [coder decodeObjectForKey:@"backgroundColor"];
+		self.size = [[coder decodeObjectForKey:@"size"] intValue];
+		self.bloomSpeed = [[coder decodeObjectForKey:@"bloomSpeed"] intValue];
+		self.wiltSpeed = [[coder decodeObjectForKey:@"wiltSpeed"] intValue];
+		self.fundamentalFrequency0 = [[coder decodeObjectForKey:@"fundamentalFrequency0"] floatValue];
+		self.fundamentalFrequency00 = [[coder decodeObjectForKey:@"fundamentalFrequency00"] floatValue];
+		self.fundamentalFrequency1 = [[coder decodeObjectForKey:@"fundamentalFrequency1"] floatValue];
+		self.bladed = [[coder decodeObjectForKey:@"bladed"] boolValue];
+		self.angled = [[coder decodeObjectForKey:@"angled"] boolValue];
+		self.bubbled = [[coder decodeObjectForKey:@"bubbled"] boolValue];
+		self.doubleBubbled = [[coder decodeObjectForKey:@"doubleBubbled"] boolValue];
+	}
+	NSLog(@"decodin");
 	return self;
 }
 
