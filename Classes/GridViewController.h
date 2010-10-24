@@ -83,6 +83,7 @@
 - (Preset *)getPresetForWindowNumber:(int)presetNumber;
 - (void)savePresets;
 - (void)loadSavedPresets;
+- (Preset*)loadPresetWithKey:(NSString*)key;
 
 
 @end
