@@ -78,27 +78,7 @@
 		}
 	}
 	
-	//Crosshatch lines
-//	count = 0;
-//	for (GridPoint *gp in grid.points) {
-//		if (count <= grid.numOfPointsAcross || count%grid.numOfPointsAcross == grid.numOfPointsAcross) { //if the point is on the first line, begin a new subpath
-//			CGPoint point = gp.current;  //get the current point from the GridPoint object
-//			CGContextMoveToPoint(gridContext, point.x, point.y);
-//
-//			int endPointIndex = grid.numOfPointsAcross;
-//			while (endPointIndex%grid.numOfPointsAcross != 1){
-//				endPointIndex =+ grid.numOfPointsAcross;
-//			}
-//			point = [[grid.points objectAtIndex:endPointIndex]current];
-//			CGContextAddLineToPoint(gridContext, point.x, point.y);
-//		}
-//		count ++;
-//	}
-	
 	CGContextSetLineWidth(gridContext, 1);
-
-//	[[UIColor colorWithRed:.73 green:1 blue:.78 alpha:1] setStroke];
-//	[[UIColor colorWithRed:.64 green:1 blue:.3 alpha:1] setStroke];
 	CGContextDrawPath(gridContext, kCGPathStroke);
 }
 

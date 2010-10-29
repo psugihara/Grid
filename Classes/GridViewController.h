@@ -41,7 +41,7 @@
 @interface GridViewController : UIViewController <EditPresetDelegate> {
 	DJMixer *djMixer;
 	
-	NSTimer				*timer;
+	NSTimer			*timer;
 	NSOperationQueue	*operationQueue;
 	NSRunLoop			*runLoop;
 	
@@ -54,7 +54,6 @@
 	Preset	*gridPresetForWindowIII;
 
 	Grid	*grid;
-	CGPoint gravitron;
 	
 	IBOutlet GridView	*gridView;
 	IBOutlet UIButton	*presetButtonI;
@@ -63,13 +62,12 @@
 }
 
 
-@property (nonatomic, retain) DJMixer			*djMixer;
-@property (nonatomic, retain) Preset			*gridPresetForWindowI;
-@property (nonatomic, retain) Preset			*gridPresetForWindowII;
-@property (nonatomic, retain) Preset			*gridPresetForWindowIII;
-@property (nonatomic, retain) Grid				*grid;
-@property (nonatomic, retain) IBOutlet GridView *gridView;
-@property (nonatomic, assign) CGPoint			gravitron;
+@property (nonatomic, retain) DJMixer		*djMixer;
+@property (nonatomic, retain) Preset		*gridPresetForWindowI;
+@property (nonatomic, retain) Preset		*gridPresetForWindowII;
+@property (nonatomic, retain) Preset		*gridPresetForWindowIII;
+@property (nonatomic, retain) Grid			*grid;
+@property (nonatomic, retain) IBOutlet	GridView *gridView;
 
 - (void)showLoadingImages;
 - (void)didFinishShowingLoadingImages;

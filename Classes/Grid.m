@@ -32,15 +32,12 @@
 
 @implementation Grid
 
-
 @synthesize lineColor, backgroundColor, points, gravitron, lengthBetweenPoints, numOfPointsAcross, numOfPointsDown, bloomSpeed, wiltSpeed;
 
-
-- (id)initWithGravitron:(CGPoint)grav andPreset:(Preset *)preset {
+- (id)initWithPreset:(Preset *)preset {
 	self = [super init];
 	if (self) {
-		[self loadPreset: preset];		
-		gravitron = grav;
+		[self loadPreset: preset];
 		
 		NSMutableArray *pointsArray = [[NSMutableArray alloc] init];
 		self.points = pointsArray;
@@ -51,6 +48,7 @@
 }
 
 - (void)loadPreset:(Preset *)preset {
+	self.gravitron = preset.gravitron;
 	self.lineColor = preset.lineColor;
 	self.backgroundColor = preset.backgroundColor;
 	int size = preset.size;

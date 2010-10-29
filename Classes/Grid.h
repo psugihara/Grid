@@ -31,16 +31,16 @@
 #import "Preset.h"
 
 @interface Grid : NSObject {
-	UIColor					*lineColor;
-	UIColor					*backgroundColor;
-	NSInteger				lengthBetweenPoints; 
-	NSInteger				numOfPointsAcross;
-	NSInteger				numOfPointsDown;
-	CGFloat					bloomSpeed;
-	CGFloat					wiltSpeed;
+	UIColor			*lineColor;
+	UIColor			*backgroundColor;
+	NSInteger			lengthBetweenPoints; 
+	NSInteger			numOfPointsAcross;
+	NSInteger			numOfPointsDown;
+	CGFloat			bloomSpeed;
+	CGFloat			wiltSpeed;
 	
-	NSMutableArray			*points;
-	CGPoint					gravitron;
+	NSMutableArray	*points;
+	CGPoint			gravitron;
 }
 
 @property (nonatomic, retain) UIColor *lineColor;
@@ -54,7 +54,7 @@
 @property (nonatomic) CGFloat bloomSpeed;
 @property (nonatomic) CGFloat wiltSpeed;
 
-- (id)initWithGravitron:(CGPoint)gravitron andPreset:(Preset *)settings;
+- (id)initWithPreset:(Preset *)settings;
 - (void)loadPreset:(Preset *)preset;
 - (void)addPointsToArray:(NSMutableArray *)arrayOfPoints;
 - (void)updatePositionOfPoints;

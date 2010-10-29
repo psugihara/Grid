@@ -35,11 +35,12 @@
 
 @interface Preset : NSObject <NSCoding> {
 	NSString	*name;
-	UIColor		*lineColor;
-	UIColor		*backgroundColor;
+	UIColor	*lineColor;
+	UIColor	*backgroundColor;
 	int			size;
 	int			bloomSpeed;
 	int			wiltSpeed;
+	CGPoint	gravitron;
 	
 	//Audio
 	float		fundamentalFrequency0;
@@ -57,6 +58,7 @@
 @property (nonatomic, assign) int size;
 @property (nonatomic, assign) int bloomSpeed;
 @property (nonatomic, assign) int wiltSpeed;
+@property (nonatomic, assign) CGPoint gravitron;
 @property (nonatomic) float fundamentalFrequency0;
 @property (nonatomic) float fundamentalFrequency00;
 @property (nonatomic) float fundamentalFrequency1;

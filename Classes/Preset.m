@@ -32,16 +32,7 @@
 
 @implementation Preset
 
-@synthesize name;
-@synthesize size;
-@synthesize lineColor;
-@synthesize backgroundColor;
-@synthesize bloomSpeed;
-@synthesize wiltSpeed;
-@synthesize fundamentalFrequency0;
-@synthesize fundamentalFrequency00;
-@synthesize fundamentalFrequency1;
-@synthesize bladed, angled, bubbled, doubleBubbled;
+@synthesize name, size, lineColor, backgroundColor, bloomSpeed, wiltSpeed, gravitron, fundamentalFrequency0, fundamentalFrequency00, fundamentalFrequency1, bladed, angled, bubbled, doubleBubbled;
 
 - (id) init {
 	self = [super init];
@@ -49,6 +40,7 @@
 		self.size = 2;
 		self.bloomSpeed = 2;
 		self.wiltSpeed = 2;
+		self.gravitron = CGPointMake(550,550);  //Will render offscreen
 		self.lineColor = [UIColor blackColor];
 		self.backgroundColor = [UIColor whiteColor];
 	}
@@ -134,6 +126,9 @@
 	[coder encodeObject:[NSNumber numberWithInt:self.size] forKey:@"size"];
 	[coder encodeObject:[NSNumber numberWithInt:self.bloomSpeed] forKey:@"bloomSpeed"];
 	[coder encodeObject:[NSNumber numberWithInt:self.wiltSpeed] forKey:@"wiltSpeed"];
+	CGPoint point = self.gravitron;
+	NSValue *pointValue = [NSValue value:&point withObjCType:@encode(CGPoint)];
+	[coder encodeObject:pointValue forKey:@"gravitron"];
 	[coder encodeObject:[NSNumber numberWithFloat:self.fundamentalFrequency0] forKey:@"fundamentalFrequency0"];
 	[coder encodeObject:[NSNumber numberWithFloat:self.fundamentalFrequency00] forKey:@"fundamentalFrequency00"];
 	[coder encodeObject:[NSNumber numberWithFloat:self.fundamentalFrequency1] forKey:@"fundamentalFrequency1"];
@@ -152,6 +147,10 @@
 		self.size = [[coder decodeObjectForKey:@"size"] intValue];
 		self.bloomSpeed = [[coder decodeObjectForKey:@"bloomSpeed"] intValue];
 		self.wiltSpeed = [[coder decodeObjectForKey:@"wiltSpeed"] intValue];
+		NSValue *decodedValue = [coder decodeObjectForKey:@"gravitron"];	
+		CGPoint point;
+		[decodedValue getValue:&point];
+		self.gravitron =  point;
 		self.fundamentalFrequency0 = [[coder decodeObjectForKey:@"fundamentalFrequency0"] floatValue];
 		self.fundamentalFrequency00 = [[coder decodeObjectForKey:@"fundamentalFrequency00"] floatValue];
 		self.fundamentalFrequency1 = [[coder decodeObjectForKey:@"fundamentalFrequency1"] floatValue];
@@ -160,7 +159,6 @@
 		self.bubbled = [[coder decodeObjectForKey:@"bubbled"] boolValue];
 		self.doubleBubbled = [[coder decodeObjectForKey:@"doubleBubbled"] boolValue];
 	}
-	NSLog(@"decodin");
 	return self;
 }
 

@@ -2,7 +2,7 @@
 //  gridViewController.m
 //  Grid
 //
-//  Created by Peter Sugihara on 6/4/09.
+//	Created by Peter Sugihara on 6/4/09.
 //	Copyright (c) 2009 Peter Sugihara
 //
 //	Permission is hereby granted, free of charge, to any person
@@ -32,7 +32,7 @@
 
 @implementation GridViewController
 
-@synthesize djMixer, gridPresetForWindowI, gridPresetForWindowII, gridPresetForWindowIII, grid, gravitron, gridView;
+@synthesize djMixer, gridPresetForWindowI, gridPresetForWindowII, gridPresetForWindowIII, grid, gridView;
 
 // The designated initializer. Override to perform setup that is required before the view is loaded.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -51,7 +51,7 @@
 }
 	  
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+	[super viewWillAppear:animated];
 	self.navigationController.navigationBarHidden=YES;
 
 }
@@ -107,7 +107,6 @@
 }
 
 - (void)synchronousCreateGrid {
-	
 	presetButtonI.tag = 1;
 	presetButtonII.tag = 2;
 	presetButtonIII.tag = 3;
@@ -125,12 +124,9 @@
 	else {
 		[self loadSavedPresets];
 	}
-								 
 	
-
-	//Load the gravitron and grid
-	gravitron = CGPointMake(550,550);  //Will render offscreen
-	grid = [[Grid alloc] initWithGravitron:self.gravitron andPreset:[self getPresetForWindowNumber:currentWindowNumber]];
+	// Load the grid.
+	grid = [[Grid alloc] initWithPreset:[self getPresetForWindowNumber:currentWindowNumber]];
 	gridView.grid = grid;
 
 	[NSThread sleepForTimeInterval:secondsToShowLoadingScreen];
@@ -209,8 +205,9 @@
 
 - (IBAction)presetButton:(UIButton *)sender {
 	if (currentWindowNumber != sender.tag) {
+		[self getPresetForWindowNumber:currentWindowNumber].gravitron = grid.gravitron;
 		self.currentWindowNumber = sender.tag;
-		grid = [grid initWithGravitron:gridView.grid.gravitron andPreset:[self getPresetForWindowNumber:currentWindowNumber]];
+		grid = [grid initWithPreset:[self getPresetForWindowNumber:currentWindowNumber]];
 
 		gridView.grid = grid;
 		djMixer.fundamentalFrequency0 = [self getPresetForWindowNumber:currentWindowNumber].fundamentalFrequency0;
@@ -225,7 +222,6 @@
 }
 
 - (IBAction)editPresetButton:(UIButton *)sender {
-
     EditPresetViewController *editController = [[EditPresetViewController alloc] initWithNibName:@"EditPresetView" bundle:nil];
     editController.delegate = self;
 	
@@ -239,7 +235,7 @@
 }
 
 #pragma mark -
-#pragma mark Change Presets
+#pragma mark Edit Presets
 
 - (void)editPresetViewController:(EditPresetViewController *)editPresetViewController didEditPreset:(Preset *)preset {
 	//Essentially "loadPreset" for djMixer
@@ -255,7 +251,6 @@
 
 - (void)editPresetViewController:(EditPresetViewController *)editPresetViewController didFinishEditingPreset:(Preset *)preset {
 	[self.grid loadPreset:preset];
-//	[self editPresetViewController:editPresetViewController didFinishEditingPreset:preset];
 	[editPresetViewController dismissModalViewControllerAnimated:YES];
 }
 
