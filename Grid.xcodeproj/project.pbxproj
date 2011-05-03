@@ -20,8 +20,6 @@
 		A16E74D210C6C4FD005A7E65 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = A16E74D110C6C4FD005A7E65 /* Icon-Small.png */; };
 		A18C974C109E7EA400DF03E7 /* EditPresetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A18C974A109E7EA400DF03E7 /* EditPresetViewController.m */; };
 		A18C974D109E7EA400DF03E7 /* EditPresetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A18C974B109E7EA400DF03E7 /* EditPresetView.xib */; };
-		A195A8AB111D54FA00389A9C /* CAStreamBasicDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A195A8A7111D54FA00389A9C /* CAStreamBasicDescription.cpp */; };
-		A195A8AC111D54FA00389A9C /* CAXException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A195A8A9111D54FA00389A9C /* CAXException.cpp */; };
 		A196599E1058A14300E946D5 /* Preset.m in Sources */ = {isa = PBXBuildFile; fileRef = A196599D1058A14300E946D5 /* Preset.m */; };
 		A1A1431E0FD8D388005626C6 /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A1431B0FD8D388005626C6 /* Grid.m */; };
 		A1A1431F0FD8D388005626C6 /* GridPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A1431D0FD8D388005626C6 /* GridPoint.m */; };
@@ -30,6 +28,8 @@
 		A1ACBA9B10CB9AED00563114 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A1ACBA9A10CB9AED00563114 /* Icon.png */; };
 		A1AD0CC51033893300489067 /* GridView.m in Sources */ = {isa = PBXBuildFile; fileRef = A14BBA900FF4061500B809CC /* GridView.m */; };
 		A1BB4D31108EC1E400BD121B /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1BB4D30108EC1E400BD121B /* GridViewController.m */; };
+		A1C13279136FC79A00FD783C /* CAStreamBasicDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1C13275136FC79A00FD783C /* CAStreamBasicDescription.cpp */; };
+		A1C1327A136FC79A00FD783C /* CAXException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1C13277136FC79A00FD783C /* CAXException.cpp */; };
 		A1C6D45210A3F12700FF344F /* gridderLoadScreen0.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C6D44610A3F12700FF344F /* gridderLoadScreen0.png */; };
 		A1C6D45310A3F12700FF344F /* gridderLoadScreen1.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C6D44710A3F12700FF344F /* gridderLoadScreen1.png */; };
 		A1C6D45410A3F12700FF344F /* gridderLoadScreen2.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C6D44810A3F12700FF344F /* gridderLoadScreen2.png */; };
@@ -67,12 +67,6 @@
 		A18C9749109E7EA400DF03E7 /* EditPresetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPresetViewController.h; sourceTree = "<group>"; };
 		A18C974A109E7EA400DF03E7 /* EditPresetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPresetViewController.m; sourceTree = "<group>"; };
 		A18C974B109E7EA400DF03E7 /* EditPresetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditPresetView.xib; sourceTree = "<group>"; };
-		A195A8A5111D54FA00389A9C /* CADebugMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADebugMacros.h; sourceTree = "<group>"; };
-		A195A8A6111D54FA00389A9C /* CAMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAMath.h; sourceTree = "<group>"; };
-		A195A8A7111D54FA00389A9C /* CAStreamBasicDescription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAStreamBasicDescription.cpp; sourceTree = "<group>"; };
-		A195A8A8111D54FA00389A9C /* CAStreamBasicDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAStreamBasicDescription.h; sourceTree = "<group>"; };
-		A195A8A9111D54FA00389A9C /* CAXException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAXException.cpp; sourceTree = "<group>"; };
-		A195A8AA111D54FA00389A9C /* CAXException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAXException.h; sourceTree = "<group>"; };
 		A196599C1058A14300E946D5 /* Preset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preset.h; sourceTree = "<group>"; };
 		A196599D1058A14300E946D5 /* Preset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preset.m; sourceTree = "<group>"; };
 		A1A1431A0FD8D388005626C6 /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Grid.h; path = Classes/Grid.h; sourceTree = SOURCE_ROOT; };
@@ -84,6 +78,12 @@
 		A1ACBA9A10CB9AED00563114 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		A1AD0CC4103388F500489067 /* GridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridView.h; sourceTree = "<group>"; };
 		A1BB4D30108EC1E400BD121B /* GridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridViewController.m; sourceTree = "<group>"; };
+		A1C13273136FC79A00FD783C /* CADebugMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADebugMacros.h; sourceTree = "<group>"; };
+		A1C13274136FC79A00FD783C /* CAMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAMath.h; sourceTree = "<group>"; };
+		A1C13275136FC79A00FD783C /* CAStreamBasicDescription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAStreamBasicDescription.cpp; sourceTree = "<group>"; };
+		A1C13276136FC79A00FD783C /* CAStreamBasicDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAStreamBasicDescription.h; sourceTree = "<group>"; };
+		A1C13277136FC79A00FD783C /* CAXException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAXException.cpp; sourceTree = "<group>"; };
+		A1C13278136FC79A00FD783C /* CAXException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAXException.h; sourceTree = "<group>"; };
 		A1C6D44610A3F12700FF344F /* gridderLoadScreen0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gridderLoadScreen0.png; sourceTree = "<group>"; };
 		A1C6D44710A3F12700FF344F /* gridderLoadScreen1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gridderLoadScreen1.png; sourceTree = "<group>"; };
 		A1C6D44810A3F12700FF344F /* gridderLoadScreen2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gridderLoadScreen2.png; sourceTree = "<group>"; };
@@ -209,7 +209,7 @@
 		A16106A51086B74C0089F437 /* AUDIO */ = {
 			isa = PBXGroup;
 			children = (
-				A195A8A4111D54FA00389A9C /* iPublicUtility */,
+				A1C13272136FC79A00FD783C /* iPublicUtility */,
 				A16106A61086B75B0089F437 /* Audio playbac */,
 			);
 			name = AUDIO;
@@ -224,17 +224,18 @@
 			name = "Audio playbac";
 			sourceTree = "<group>";
 		};
-		A195A8A4111D54FA00389A9C /* iPublicUtility */ = {
+		A1C13272136FC79A00FD783C /* iPublicUtility */ = {
 			isa = PBXGroup;
 			children = (
-				A195A8A5111D54FA00389A9C /* CADebugMacros.h */,
-				A195A8A6111D54FA00389A9C /* CAMath.h */,
-				A195A8A7111D54FA00389A9C /* CAStreamBasicDescription.cpp */,
-				A195A8A8111D54FA00389A9C /* CAStreamBasicDescription.h */,
-				A195A8A9111D54FA00389A9C /* CAXException.cpp */,
-				A195A8AA111D54FA00389A9C /* CAXException.h */,
+				A1C13273136FC79A00FD783C /* CADebugMacros.h */,
+				A1C13274136FC79A00FD783C /* CAMath.h */,
+				A1C13275136FC79A00FD783C /* CAStreamBasicDescription.cpp */,
+				A1C13276136FC79A00FD783C /* CAStreamBasicDescription.h */,
+				A1C13277136FC79A00FD783C /* CAXException.cpp */,
+				A1C13278136FC79A00FD783C /* CAXException.h */,
 			);
-			path = iPublicUtility;
+			name = iPublicUtility;
+			path = ../iPublicUtility;
 			sourceTree = "<group>";
 		};
 		A1D4DB2C0FE0F2D800407A89 /* Model */ = {
@@ -302,7 +303,11 @@
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Grid" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -368,8 +373,8 @@
 				A16106AC1086B75B0089F437 /* DJMixer.m in Sources */,
 				A1BB4D31108EC1E400BD121B /* GridViewController.m in Sources */,
 				A18C974C109E7EA400DF03E7 /* EditPresetViewController.m in Sources */,
-				A195A8AB111D54FA00389A9C /* CAStreamBasicDescription.cpp in Sources */,
-				A195A8AC111D54FA00389A9C /* CAXException.cpp in Sources */,
+				A1C13279136FC79A00FD783C /* CAStreamBasicDescription.cpp in Sources */,
+				A1C1327A136FC79A00FD783C /* CAXException.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,8 +391,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Grid_Prefix.pch;
 				INFOPLIST_FILE = "Gridder-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = Grid;
-				SDKROOT = iphonesimulator2.2;
+				SDKROOT = iphoneos4.3;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -400,7 +406,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Grid_Prefix.pch;
 				INFOPLIST_FILE = "Gridder-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = Grid;
+				SDKROOT = iphoneos4.3;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -435,8 +443,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Grid_Prefix.pch;
 				INFOPLIST_FILE = "Gridder-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = Grid;
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos4.3;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Distribution;
