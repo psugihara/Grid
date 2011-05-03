@@ -36,10 +36,12 @@
 
 // The designated initializer. Override to perform setup that is required before the view is loaded.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
 		operationQueue = [[NSOperationQueue alloc] init];
 		[operationQueue setMaxConcurrentOperationCount:3];
 	}
+    
     return self;
 }
 
@@ -182,6 +184,11 @@
 #pragma mark Touches
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    // Start playing sound if we aren't already.
+    if (!djMixer.fundamentalFrequency0) {
+        Preset *preset = [self getPresetForWindowNumber:currentWindowNumber];
+        [self loadMixerPreset:preset];
+    }
 	UITouch *touch= [touches anyObject];
 	grid.gravitron = [touch locationInView:self.gridView];
 	CGRect rect = [[UIScreen mainScreen] bounds];
@@ -205,18 +212,16 @@
 
 - (IBAction)presetButton:(UIButton *)sender {
 	if (currentWindowNumber != sender.tag) {
-		[self getPresetForWindowNumber:currentWindowNumber].gravitron = grid.gravitron;
-		self.currentWindowNumber = sender.tag;
-		grid = [grid initWithPreset:[self getPresetForWindowNumber:currentWindowNumber]];
+        // Remember the gravitron location.
+        [self getPresetForWindowNumber:currentWindowNumber].gravitron = grid.gravitron;
+        
+		currentWindowNumber = sender.tag;
+        Preset *preset = [self getPresetForWindowNumber:currentWindowNumber];
 
+		grid = [grid initWithPreset:preset];
 		gridView.grid = grid;
-		djMixer.fundamentalFrequency0 = [self getPresetForWindowNumber:currentWindowNumber].fundamentalFrequency0;
-		djMixer.fundamentalFrequency00 = [self getPresetForWindowNumber:currentWindowNumber].fundamentalFrequency0;
-		djMixer.fundamentalFrequency1 = [self getPresetForWindowNumber:currentWindowNumber].fundamentalFrequency1;
-		djMixer.bladed = [self getPresetForWindowNumber:currentWindowNumber].bladed;
-		djMixer.angled = [self getPresetForWindowNumber:currentWindowNumber].angled;
-		djMixer.bubbled = [self getPresetForWindowNumber:currentWindowNumber].bubbled;
-		djMixer.doubleBubbled = [self getPresetForWindowNumber:currentWindowNumber].doubleBubbled;
+        
+		[self loadMixerPreset:preset];
 	}
 	[grid reset];
 }
@@ -238,14 +243,7 @@
 #pragma mark Edit Presets
 
 - (void)editPresetViewController:(EditPresetViewController *)editPresetViewController didEditPreset:(Preset *)preset {
-	//Essentially "loadPreset" for djMixer
-	djMixer.fundamentalFrequency0 = preset.fundamentalFrequency0;
-	djMixer.fundamentalFrequency00 = preset.fundamentalFrequency00;
-	djMixer.fundamentalFrequency1 = preset.fundamentalFrequency1;
-	djMixer.bladed = preset.bladed;
-	djMixer.angled = preset.angled;
-	djMixer.bubbled = preset.bubbled;
-	djMixer.doubleBubbled = preset.doubleBubbled;
+    [self loadMixerPreset:preset];
 	[self savePresets];
 }
 
@@ -312,6 +310,20 @@
     NSData *myEncodedObject = [prefs objectForKey:key];
     Preset* obj = (Preset*)[NSKeyedUnarchiver unarchiveObjectWithData:myEncodedObject];
     return obj;
+}
+
+#pragma mark -
+#pragma mark Audio
+
+//Essentially "loadPreset" for djMixer
+- (void)loadMixerPreset:(Preset*)preset {
+	djMixer.fundamentalFrequency0 = preset.fundamentalFrequency0;
+	djMixer.fundamentalFrequency00 = preset.fundamentalFrequency00;
+	djMixer.fundamentalFrequency1 = preset.fundamentalFrequency1;
+	djMixer.bladed = preset.bladed;
+	djMixer.angled = preset.angled;
+	djMixer.bubbled = preset.bubbled;
+	djMixer.doubleBubbled = preset.doubleBubbled;
 }
 
 @end

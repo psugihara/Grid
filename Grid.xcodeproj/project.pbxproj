@@ -210,18 +210,18 @@
 			isa = PBXGroup;
 			children = (
 				A1C13272136FC79A00FD783C /* iPublicUtility */,
-				A16106A61086B75B0089F437 /* Audio playbac */,
+				A16106A61086B75B0089F437 /* Audio playback */,
 			);
 			name = AUDIO;
 			sourceTree = "<group>";
 		};
-		A16106A61086B75B0089F437 /* Audio playbac */ = {
+		A16106A61086B75B0089F437 /* Audio playback */ = {
 			isa = PBXGroup;
 			children = (
 				A16106A91086B75B0089F437 /* DJMixer.h */,
 				A16106AA1086B75B0089F437 /* DJMixer.m */,
 			);
-			name = "Audio playbac";
+			name = "Audio playback";
 			sourceTree = "<group>";
 		};
 		A1C13272136FC79A00FD783C /* iPublicUtility */ = {

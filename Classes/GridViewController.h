@@ -39,9 +39,10 @@
 
 
 @interface GridViewController : UIViewController <EditPresetDelegate> {
+    
 	DJMixer *djMixer;
 	
-	NSTimer			*timer;
+	NSTimer             *timer;
 	NSOperationQueue	*operationQueue;
 	NSRunLoop			*runLoop;
 	
@@ -82,7 +83,7 @@
 - (void)savePresets;
 - (void)loadSavedPresets;
 - (Preset*)loadPresetWithKey:(NSString*)key;
-
+- (void)loadMixerPreset:(Preset*)preset;
 
 @end
 
