@@ -46,9 +46,9 @@
 }
 
 - (void)shiftAroundCenter:(CGPoint)center {
-	CGFloat centerToOriginal = [GridPoint distanceBetween:original and:center];
-	CGFloat centerToCurrent = [GridPoint distanceBetween:current and:center];
-	CGFloat offset = [GridPoint distanceBetween:original and:current];
+	CGFloat centerToOriginal = [GridPoint distanceBetweenPoint:original point:center];
+	CGFloat centerToCurrent = [GridPoint distanceBetweenPoint:current point:center];
+	CGFloat offset = [GridPoint distanceBetweenPoint:original point:current];
 	
 	if (centerToOriginal < 80) {
 		CGFloat shift = 60*bloomSpeed/centerToCurrent;
@@ -75,7 +75,7 @@
 }
 		
 
-+ (CGFloat)distanceBetween:(CGPoint)point1 and: (CGPoint)point2 {
++ (CGFloat)distanceBetweenPoint:(CGPoint)point1 point:(CGPoint)point2 {
 	CGFloat dx = point2.x - point1.x;
 	CGFloat dy = point2.y - point1.y;
 	return sqrt(dx*dx + dy*dy);

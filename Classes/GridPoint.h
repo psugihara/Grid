@@ -44,7 +44,7 @@
 
 - (id)initWithX:(NSInteger)x andY:(NSInteger)y;
 - (void) shiftAroundCenter:(CGPoint)center;
-+ (CGFloat)distanceBetween:(CGPoint)point1 and: (CGPoint)point2;
++ (CGFloat)distanceBetweenPoint:(CGPoint)point1 point:(CGPoint)point2;
 - (void)reset;
 
 @end
