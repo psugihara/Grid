@@ -1,8 +1,17 @@
-Grid
-====
+GRID1/gr-1d
+===========
 
-An electronic grid instrument for iPhone built with audio units.
+In 1970, mathematician, John Conway, created his "Game of Life" in which, by assigning a handful of simple behavioral rules for cells in a grid, one could model complex interactions.  As additional rules are continually imposed on those of us outside the game, towards a modern goal of "living well," our graph, mapping our relationships to one another as well as our place within it, becomes further obscured.  This piece was created in part to explore that obscurity.
 
+### Still, as the grid bends
+
+On first loading the application, the user/player/musician/audience is greeted with some degree of enigma.  But, as soon as the grid is touched and activated the lines bloom and swell, wilting if left lonesome by an invisible, movable gravitron.  And there is also sound.  Below the glass, a tight loop rapidly queries a callback function for the 44.1 thousand values needed to construct each second of saw and sine waves.  In the tradition of Karlheinz Stockhausen's early conception of Electronische Musik, every tone used is generated wholly by the machine.  Each frame (I,II,III) has two dominant frequencies which are blended with 7ths and 5ths.  By scrubbing the gravitron along the y axis, one may crossfade and between these.  By scrubbing the gravitron in the x direction, the higher frequency tone is shifted up and down octaves.  These shifts may be used both melodically and rhythmically to create complexity without knowledge of the underlying mechanisms.  Thus, I hope to have created a user friendly (though perhaps not always listener friendly) abstraction for the underlying mathematic complexity.  Furthermore, I hope to have created an expressive interface which lends itself to creative human interaction by making the numbers tangible.
+
+###  it never breaks.
+
+I am still working on a method of notation.
+
+By Peter Sugihara
 <script data-gittip-username="psugihara"
         data-gittip-widget="button"
         src="//gttp.co/v1.js"></script>
